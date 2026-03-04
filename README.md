@@ -6,7 +6,7 @@ Documentação rápida para rodar a aplicação e os testes automatizados.
 
 - Node.js 18+ (ou versão LTS mais recente)
 - npm
-- Python 3 (usado para servir os arquivos estáticos)
+- Python 3 instalado na máquina (usado para servir os arquivos estáticos)
 
 ## Instalação
 
@@ -29,7 +29,7 @@ A aplicação é estática (`index.html`, `app.js`, `styles.css`).
 Para subir localmente em `http://127.0.0.1:4173`:
 
 ```bash
-python3 -m http.server 4173 --bind 127.0.0.1
+npm run dev
 ```
 
 Depois, abra no navegador:

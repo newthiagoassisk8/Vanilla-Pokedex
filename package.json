@@ -4,6 +4,7 @@
     "description": "",
     "main": "app.js",
     "scripts": {
+        "dev": "python3 -m http.server 4173 --bind 127.0.0.1",
         "test": "playwright test",
         "test:e2e": "playwright test",
         "test:e2e:ui": "playwright test --ui",
