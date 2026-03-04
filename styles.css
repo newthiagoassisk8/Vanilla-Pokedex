@@ -1,129 +1,129 @@
 :root {
-  --bg: #f5f7fb;
-  --card: #ffffff;
-  --text: #1f2937;
-  --accent: #e11d48;
-  --muted: #6b7280;
-  --overlay: rgba(17, 24, 39, 0.6);
-  --radius: 12px;
+    --bg: #f5f7fb;
+    --card: #ffffff;
+    --text: #1f2937;
+    --accent: #e11d48;
+    --muted: #6b7280;
+    --overlay: rgba(17, 24, 39, 0.6);
+    --radius: 12px;
 }
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  min-height: 100vh;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  color: var(--text);
-  background: radial-gradient(circle at top left, #fff 0%, var(--bg) 55%);
-  display: grid;
-  place-items: center;
-  padding: 24px;
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text);
+    background: radial-gradient(circle at top left, #fff 0%, var(--bg) 55%);
+    display: grid;
+    place-items: center;
+    padding: 24px;
 }
 
 .app {
-  width: min(560px, 100%);
-  background: var(--card);
-  border-radius: var(--radius);
-  padding: 24px;
-  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+    width: min(560px, 100%);
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 24px;
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
 }
 
 h1 {
-  margin-top: 0;
-  margin-bottom: 8px;
+    margin-top: 0;
+    margin-bottom: 8px;
 }
 
 p {
-  margin-top: 0;
-  color: var(--muted);
+    margin-top: 0;
+    color: var(--muted);
 }
 
 .search-form {
-  display: grid;
-  gap: 12px;
+    display: grid;
+    gap: 12px;
 }
 
 .search-form input,
 .search-form button {
-  height: 44px;
-  border-radius: 10px;
-  border: 1px solid #d1d5db;
-  padding: 0 12px;
-  font-size: 1rem;
+    height: 44px;
+    border-radius: 10px;
+    border: 1px solid #d1d5db;
+    padding: 0 12px;
+    font-size: 1rem;
 }
 
 .search-form input:focus {
-  outline: 2px solid #fda4af;
-  border-color: transparent;
+    outline: 2px solid #fda4af;
+    border-color: transparent;
 }
 
 .search-form button {
-  cursor: pointer;
-  border: 0;
-  background: var(--accent);
-  color: #fff;
-  font-weight: 600;
+    cursor: pointer;
+    border: 0;
+    background: var(--accent);
+    color: #fff;
+    font-weight: 600;
 }
 
 .modal {
-  position: fixed;
-  inset: 0;
-  display: grid;
-  place-items: center;
-  background: var(--overlay);
-  padding: 16px;
+    position: fixed;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    background: var(--overlay);
+    padding: 16px;
 }
 
 .modal.hidden {
-  display: none;
+    display: none;
 }
 
 .modal-content {
-  width: min(460px, 100%);
-  background: var(--card);
-  border-radius: var(--radius);
-  padding: 20px;
-  position: relative;
-  text-align: center;
+    width: min(460px, 100%);
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 20px;
+    position: relative;
+    text-align: center;
 }
 
 .close-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: transparent;
-  border: 0;
-  font-size: 1.8rem;
-  line-height: 1;
-  cursor: pointer;
-  color: var(--muted);
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: 0;
+    font-size: 1.8rem;
+    line-height: 1;
+    cursor: pointer;
+    color: var(--muted);
 }
 
 #pokemon-image {
-  display: block;
-  margin: 12px auto 18px;
-  object-fit: contain;
+    display: block;
+    margin: 12px auto 18px;
+    object-fit: contain;
 }
 
 .pokemon-details {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  gap: 8px;
-  text-align: left;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 8px;
+    text-align: left;
 }
 
 .sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  padding: 0;
-  border: 0;
-  clip: rect(0 0 0 0);
-  overflow: hidden;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
 }
