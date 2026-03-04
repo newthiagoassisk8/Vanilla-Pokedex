@@ -9,6 +9,12 @@ const pokemonTypeEl = document.getElementById('pokemon-type');
 const pokemonHeightEl = document.getElementById('pokemon-height');
 const pokemonWeightEl = document.getElementById('pokemon-weight');
 
+
+const errorModal =
+  document.getElementById('error-modal');
+const closeErrorModalBtn = document.getElementById('close-error-modal');
+const errorMessageEl = document.getElementById('error-message');
+
 function openModal() {
   modal.classList.remove('hidden');
 }
@@ -32,19 +38,31 @@ async function fetchPokemonInfo(pokemon) {
       name: data.name,
       image: data.sprites.other['official-artwork'].front_default || '',
       height: data.height,
+      weight: data.weight,
       types: data.types?.map(item => item.type?.name).join(', ') || 'Sem tipos'
     }
   } catch (e) {
     console.error(e)
-    return null
+    throw new Error(e.message)
   }
+}
+
+function openErrorModal() {
+  errorModal.classList.remove('hidden');
+}
+
+function closeErrorModal() {
+  errorModal.classList.add('hidden');
+}
+
+function renderErrorModal(msg) {
+  errorMessageEl.textContent = msg || 'Ocorreu um erro ao buscar o pokemon em questão';
+  openErrorModal();
 }
 
 
 
 function renderPokemonModal(data) {
-  console.log('data')
-  console.log(data)
   pokemonNameEl.textContent = data.name || 'Pokemon';
   pokemonImageEl.src = data.image || 'carregando';
   pokemonTypeEl.textContent = data.types || '-';
@@ -54,13 +72,19 @@ function renderPokemonModal(data) {
 }
 
 async function handleSearch(query) {
-  // TODO: implemente aqui sua chamada de endpoint.
-  let pokemon = await fetchPokemonInfo(query);
-  if (!pokemon) {
-    return;
-  }
+  try {
 
-  renderPokemonModal(pokemon);
+    let pokemon = await fetchPokemonInfo(query);
+    if (!pokemon) {
+      renderPokemonModal('Pokemon não encontrado')
+      return;
+    }
+
+    renderPokemonModal(pokemon);
+
+  } catch (e) {
+    renderErrorModal(e?.message)
+  }
 }
 
 form.addEventListener('submit', async (event) => {
@@ -73,6 +97,12 @@ form.addEventListener('submit', async (event) => {
 });
 
 closeModalBtn.addEventListener('click', closeModal);
+
+closeErrorModalBtn.addEventListener('click', closeErrorModal);
+
+errorModal.addEventListener('click', (event) => {
+  if (event.target === errorModal) closeErrorModal();
+});
 
 modal.addEventListener('click', (event) => {
   if (event.target === modal) closeModal();

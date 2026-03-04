@@ -25,11 +25,12 @@
       </form>
     </main>
 
-
-
     <div id="pokemon-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="pokemon-name">
       <div class="modal-content">
         <button id="close-modal" class="close-btn" type="button" aria-label="Fechar modal">&times;</button>
+
+
+
 
         <h2 id="pokemon-name">Nome do Pokemon</h2>
         <img
@@ -48,6 +49,15 @@
       </div>
     </div>
 
+ <div id="error-modal" class="modal hidden" role="dialog" aria-
+  modal="true" aria-labelledby="error-title">
+    <div class="modal-content">
+      <button id="close-error-modal" class="close-btn" type="button" aria-
+  label="Fechar modal de erro">&times;</button>
+      <h2 id="error-title">Erro</h2>
+      <p id="error-message">Ocorreu um erro inesperado.</p>
+    </div>
+  </div>
     <script src="app.js"></script>
   </body>
 </html>
