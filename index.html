@@ -15,47 +15,69 @@
                 <label for="pokemon-query" class="sr-only">Nome ou ID do Pokemon</label>
                 <input
                     id="pokemon-query"
+                    data-testid="search-input"
                     name="pokemon-query"
                     type="text"
                     placeholder="Ex: pikachu ou 25"
                     autocomplete="off"
                     required
                 />
-                <button type="submit">Buscar</button>
+                <button type="submit" data-testid="search-button">Buscar</button>
             </form>
         </main>
 
-        <div id="pokemon-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="pokemon-name">
+        <div
+            id="pokemon-modal"
+            data-testid="pokemon-modal"
+            class="modal hidden"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="pokemon-name"
+        >
             <div class="modal-content">
                 <button id="close-modal" class="close-btn" type="button" aria-label="Fechar modal">&times;</button>
 
-                <h2 id="pokemon-name">Nome do Pokemon</h2>
-                <img id="pokemon-image" src="" alt="Imagem oficial do Pokemon" width="200" height="200" />
+                <h2 id="pokemon-name" data-testid="pokemon-name">Nome do Pokemon</h2>
+                <img
+                    id="pokemon-image"
+                    data-testid="pokemon-image"
+                    src=""
+                    alt="Imagem oficial do Pokemon"
+                    width="200"
+                    height="200"
+                />
 
                 <ul class="pokemon-details">
                     <li>
                         <strong>Tipo:</strong>
-                        <span id="pokemon-type">-</span>
+                        <span id="pokemon-type" data-testid="pokemon-type">-</span>
                     </li>
                     <li>
                         <strong>Altura:</strong>
-                        <span id="pokemon-height">-</span>
+                        <span id="pokemon-height" data-testid="pokemon-height">-</span>
                     </li>
                     <li>
                         <strong>Peso:</strong>
-                        <span id="pokemon-weight">-</span>
+                        <span id="pokemon-weight" data-testid="pokemon-weight">-</span>
                     </li>
                 </ul>
             </div>
         </div>
 
-        <div id="error-modal" class="modal hidden" role="dialog" aria- modal="true" aria-labelledby="error-title">
+        <div
+            id="error-modal"
+            data-testid="error-modal"
+            class="modal hidden"
+            role="dialog"
+            aria- modal="true"
+            aria-labelledby="error-title"
+        >
             <div class="modal-content">
                 <button id="close-error-modal" class="close-btn" type="button" aria- label="Fechar modal de erro">
                     &times;
                 </button>
                 <h2 id="error-title">Erro</h2>
-                <p id="error-message">Ocorreu um erro inesperado.</p>
+                <p id="error-message" data-testid="error-message">Ocorreu um erro inesperado.</p>
             </div>
         </div>
         <script src="app.js"></script>
