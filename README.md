@@ -1,78 +1,103 @@
 # Vanilla Pokedex
 
-Documentação rápida para rodar a aplicação e os testes automatizados.
+This project was intentionally built with Vanilla JS to keep the focus on core web concepts (DOM, events, API consumption, and error handling) without framework abstractions. With that, the study prioritizes testing tools like Playwright (E2E) and BDD with Cucumber + Playwright.
 
-## Pré-requisitos
+Quick documentation to run the app and automated tests.
 
-- Node.js 18+ (ou versão LTS mais recente)
+## Prerequisites
+
+- Node.js 18+ (or the latest LTS)
 - npm
-- Python 3 instalado na máquina (usado para servir os arquivos estáticos)
+- Python 3 installed on your machine (used to serve static files)
 
-## Instalação
+## Installation
 
-No diretório do projeto, execute:
+Inside the project directory, run:
 
 ```bash
 npm install
 ```
 
-Se for a primeira execução com Playwright no ambiente, instale os navegadores:
+If this is your first Playwright run in this environment, install the browsers:
 
 ```bash
 npx playwright install
 ```
 
-## Como rodar a aplicação
+## How to run the app
 
-A aplicação é estática (`index.html`, `app.js`, `styles.css`).
+The app is static (`index.html`, `app.js`, `styles.css`).
 
-Para subir localmente em `http://127.0.0.1:4173`:
+To start it on port `4173`, listening on all network interfaces (`0.0.0.0`):
 
 ```bash
 npm run dev
 ```
 
-Depois, abra no navegador:
+Then open it in your browser:
 
 - `http://127.0.0.1:4173`
+- `http://localhost:4173`
+- `http://<YOUR-MACHINE-IP>:4173`
 
-Para parar o servidor, use `Ctrl + C` no terminal.
+To stop the server, use `Ctrl + C` in the terminal.
 
-## Como rodar os testes
+## How to run tests
 
-Os testes E2E usam Playwright e estão em `tests/e2e`.
+The project has two testing layers:
 
-### Rodar todos os testes
+- E2E with Playwright in `tests/e2e`
+- BDD with Cucumber + Playwright in `tests/features`, `tests/steps`, and `tests/support`
+
+### E2E (Playwright)
+
+Run all E2E tests:
 
 ```bash
 npm test
 ```
 
-ou
+or
 
 ```bash
 npm run test:e2e
 ```
 
-### Rodar em modo UI (Playwright App)
+Run in UI mode (Playwright App):
 
 ```bash
 npm run test:e2e:ui
 ```
 
-### Rodar com navegador visível (headed)
+Run with visible browser (headed):
 
 ```bash
 npm run test:e2e:headed
 ```
 
-### Abrir relatório HTML após a execução
+Open HTML report after execution:
 
 ```bash
 npm run test:e2e:report
 ```
 
-## Observações
+### BDD (Cucumber + Playwright)
 
-- A configuração dos testes está em `playwright.config.js`.
-- Durante os testes, o Playwright sobe automaticamente um servidor local em `http://127.0.0.1:4173` usando Python.
+Run BDD scenarios:
+
+```bash
+npm run test:bdd
+```
+
+Current scenarios in the `Pokemon search` feature:
+
+- Search for a valid Pokemon
+- Search for an invalid Pokemon
+- Mock Pokédex API with `page.route()`
+
+## Notes
+
+- Test configuration is in `playwright.config.js`.
+- During E2E tests, Playwright automatically starts a local server at `http://127.0.0.1:4173` using Python.
+- In BDD tests, steps use stable selectors with `data-testid`.
+- BDD scenarios use `await` + `expect` and do not use `waitForTimeout`.
