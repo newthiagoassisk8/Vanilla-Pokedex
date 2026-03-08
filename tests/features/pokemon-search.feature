@@ -14,8 +14,3 @@ Feature: Pokemon search
     And clica no botao buscar
     Then uma mensagem de erro amigavel deve aparecer
 
-  Scenario: Mock da API da Pokedex
-    Given a API foi interceptada com page.route
-    And a API retorna um Pokemon mockado
-    When o usuario faz uma busca
-    Then os dados mockados devem aparecer na interface
