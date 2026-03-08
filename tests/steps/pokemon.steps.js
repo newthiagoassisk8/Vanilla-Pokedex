@@ -16,11 +16,11 @@ const PIKACHU_MOCK = {
     types: [{ type: { name: 'electric' } }],
 };
 
-Given('o usuario esta na pagina da Pokedex', async function () {
+Given('the user is on the Pokedex page', async function () {
     await this.page.goto(this.appUrl);
 });
 
-When('ele digita {string} no campo de busca', async function (query) {
+When('they type {string} in the search field', async function (query) {
     this.currentQuery = query;
 
     if (query === 'pikachu') {
@@ -46,34 +46,34 @@ When('ele digita {string} no campo de busca', async function (query) {
     await this.page.getByTestId('search-input').fill(query);
 });
 
-When('clica no botao buscar', async function () {
+When('they click the search button', async function () {
     await this.page.getByTestId('search-button').click();
 });
 
-Then('o nome do Pokemon deve aparecer', async function () {
+Then('the Pokemon name should be displayed', async function () {
     const pokemonName = this.page.getByTestId('pokemon-name');
     await expect(pokemonName).toBeVisible();
     await expect(pokemonName).not.toHaveText('Nome do Pokemon');
 });
 
-Then('a imagem do Pokemon deve estar visivel', async function () {
+Then('the Pokemon image should be visible', async function () {
     await expect(this.page.getByTestId('pokemon-image')).toBeVisible();
 });
 
-Then('pelo menos um tipo deve aparecer', async function () {
+Then('at least one type should be displayed', async function () {
     const typeElement = this.page.getByTestId('pokemon-type');
     await expect(typeElement).toBeVisible();
     await expect(typeElement).not.toHaveText('-');
 });
 
-Then('uma mensagem de erro amigavel deve aparecer', async function () {
+Then('a user-friendly error message should be displayed', async function () {
     const errorModal = this.page.getByTestId('error-modal');
     await expect(errorModal).toBeVisible();
     await expect(errorModal).not.toHaveClass(/hidden/);
     await expect(this.page.getByTestId('error-message')).toContainText(/pokemon n.o encontrado/i);
 });
 
-Given('a API foi interceptada com page.route', async function () {
+Given('the API was intercepted with page.route', async function () {
     await this.page.route('https://pokeapi.co/api/v2/pokemon/**', async (route) => {
         if (!this.mockPokemon) {
             await route.continue();
@@ -89,7 +89,7 @@ Given('a API foi interceptada com page.route', async function () {
     this.routeReady = true;
 });
 
-Given('a API retorna um Pokemon mockado', function () {
+Given('the API returns a mocked Pokemon', function () {
     this.mockPokemon = {
         name: 'bulbasaur-mock',
         sprites: {
@@ -107,9 +107,9 @@ Given('a API retorna um Pokemon mockado', function () {
     this.mockQuery = '1';
 });
 
-When('o usuario faz uma busca', async function () {
+When('the user performs a search', async function () {
     if (!this.routeReady) {
-        throw new Error('A rota de mock precisa ser configurada antes da busca.');
+        throw new Error('The mock route must be configured before searching.');
     }
 
     await this.page.goto(this.appUrl);
@@ -117,7 +117,7 @@ When('o usuario faz uma busca', async function () {
     await this.page.getByTestId('search-button').click();
 });
 
-Then('os dados mockados devem aparecer na interface', async function () {
+Then('the mocked data should be displayed in the UI', async function () {
     await expect(this.page.getByTestId('pokemon-name')).toHaveText(this.mockPokemon.name);
     await expect(this.page.getByTestId('pokemon-image')).toHaveAttribute(
         'src',

@@ -26,7 +26,7 @@ BeforeAll(async () => {
     browser = await chromium.launch({ headless: true });
 });
 
-Before(async function () {
+Before(async function() {
     this.context = await browser.newContext();
     this.page = await this.context.newPage();
     this.currentQuery = '';
@@ -35,7 +35,7 @@ Before(async function () {
     this.routeReady = false;
 });
 
-After(async function () {
+After(async function() {
     await this.context.close();
 });
 
