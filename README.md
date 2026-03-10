@@ -89,11 +89,18 @@ Run BDD scenarios:
 npm run test:bdd
 ```
 
+Generate the HTML report for the BDD suite:
+
+```bash
+npm run test:bdd:report
+```
+
+The report is generated at `reports/cucumber.html`.
+
 Current scenarios in the `Pokemon search` feature:
 
 - Search for a valid Pokemon
 - Search for an invalid Pokemon
-- Mock Pokédex API with `page.route()`
 
 ## Notes
 
