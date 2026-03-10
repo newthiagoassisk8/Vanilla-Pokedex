@@ -10,6 +10,6 @@ Feature: Pokemon search
 
   Scenario: Search for an invalid Pokemon
     Given the user is on the Pokedex page
-    When they type "pokemon-inexistente-xyz" in the search field
+    When they type "missing-pokemon-xyz" in the search field
     And they click the search button
     Then a user-friendly error message should be displayed

@@ -3,9 +3,9 @@ import { shouldFillModalWithMockedPokemonData, shouldShowErrorModalForInvalidPok
 
 test.describe.configure({ mode: 'serial' });
 
-test('deve preencher o modal com dados mockados ao buscar pokemon 25', shouldFillModalWithMockedPokemonData);
+test('should fill the modal with mocked data when searching for pokemon 25', shouldFillModalWithMockedPokemonData);
 
 test(
-    'deve abrir o modal de erro sem classe hidden quando argumento for invalido',
+    'should open the error modal without the hidden class when the search argument is invalid',
     shouldShowErrorModalForInvalidPokemon
 );

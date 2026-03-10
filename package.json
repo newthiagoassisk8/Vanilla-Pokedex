@@ -10,7 +10,8 @@
         "test:e2e:ui": "playwright test --ui",
         "test:e2e:headed": "playwright test --headed",
         "test:e2e:report": "playwright show-report",
-        "test:bdd": "cucumber-js --import tests/support/hooks.js --import tests/steps/**/*.js tests/features/**/*.feature"
+        "test:bdd": "cucumber-js --import tests/support/hooks.js --import tests/steps/**/*.js tests/features/**/*.feature",
+        "test:bdd:report": "mkdir -p reports && cucumber-js --format html:reports/cucumber.html --import tests/support/hooks.js --import tests/steps/**/*.js tests/features/**/*.feature"
     },
     "keywords": [],
     "author": "",
